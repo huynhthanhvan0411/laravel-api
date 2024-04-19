@@ -1,0 +1,6 @@
+1. Trình bày cơ chế quản lí sesion trong laravel
+- được dùng để lưu trữu dữ liệu tạm thời giỏ hàng
+- cấu hình của session được lưu tại config/session.php
+-  'driver' => env('SESSION_DRIVER', 'file'), : định nghĩa driver sesion lưu dưới dạng file
+- 'lifetime' => env('SESSION_LIFETIME', 120): ở đây là set thời gian của session, nếu user k hoạt động trên ứng dụng trong khoảng thời gian này thì session sẽ expire và họ phải đnawg nhập lại. default minutes. Ta có thể thay đổi thời gian cho sesion ở đây ví dụ 1500, 200 phút...
+- các định nghĩa hằng đều nằm trong .env
