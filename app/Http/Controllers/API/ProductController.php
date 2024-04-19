@@ -17,7 +17,11 @@ class ProductController extends Controller
     public function index()
     {
         // return Product::all();
-        $product = Product::all();
+        $product = Product::all()
+                  ->groupBy('price')
+                  ->having('price', '>', 1000)
+                  ->limit(10)
+                  ->get();
         $arr=[
             'status'=>true,
             'data' => $product
