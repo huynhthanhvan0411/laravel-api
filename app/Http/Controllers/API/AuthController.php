@@ -40,13 +40,13 @@ class AuthController extends Controller
 
         ]);
        if($validator->fails())return response()->json($validator->errors());
-        $user = User::create([
-       'name' => $request->name,
-       'email' => $request->email,
-       'role_id' => 2,
-       'password' => Hash::make($request->password)
-    ]);
-    $token = $user->createToken('auth_token')->plainTextToken;
+            $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'role_id' => 2,
+            'password' => Hash::make($request->password)
+        ]);
+        $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
             'message' => 'Chào ' . $user->name . '! Chúc an lành',
