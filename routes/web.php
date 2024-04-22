@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +22,9 @@ use App\Http\Controllers\ProductController;
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
 
-Route::get('/',[ProductController::class, 'show'])->name('home');
+// Route::get('/',[ProductController::class, 'show'])->name('home');
+Route::get('/', 'TaskController@index')->name('index');
+Route::post('/task', 'TaskController@store')->name('store.task');
+Route::delete('/task/{task}', 'TaskController@delete')->name('delete.task');
+
 // require __DIR__.'/auth.php';
